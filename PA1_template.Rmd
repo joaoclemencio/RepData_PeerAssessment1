@@ -103,7 +103,7 @@ The total number of missing values in the dataset is `r total.nas`.
 
 ### 2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
 
-By grouping the data by day and counting the number of days, we can see that the only `NA`s correspond to entire days.
+By grouping the data by day and counting the number of `NA`s, we can see that these correspond to entire missing days.
 
 ```{r}
 activity %>% group_by(date) %>% summarise(NAs = sum(is.na(steps))) %>% filter(NAs > 0)
@@ -139,10 +139,6 @@ steps.per.day.filled <- activity.filled %>% group_by(date) %>% summarise(total.s
 
 mean.steps.per.day.filled <- mean(steps.per.day.filled$total.steps)
 median.steps.per.day.filled <- median(steps.per.day.filled$total.steps)
-
-mean.difference <- mean.steps.per.day.filled / mean.steps.per.day
-median.difference <- median.steps.per.day.filled / median.steps.per.day
-
 ```
 
 |        | NA's Removed                                                | NA's Filled Out                                                   |
