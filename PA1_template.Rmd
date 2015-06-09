@@ -35,7 +35,7 @@ The data processing will result in 4 columns:
 
 ```{r}
 activity <- tbl_df(activity)
-
+ 
 activity$interval <- formatC(activity$interval, width = 4, flag = "0")
 activity$timestamp <- paste(activity$date, activity$interval)
 
