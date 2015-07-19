@@ -1,9 +1,4 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 
 
@@ -52,7 +47,7 @@ steps.per.day <- activity %>% na.omit() %>% group_by(date) %>% summarise(total.s
 hist(steps.per.day$total.steps, xlab = "Total Steps per Day", main = "Histogram of Total Steps per Day")
 ```
 
-![plot of chunk steps_histogram](figure/steps_histogram-1.png) 
+![](PA1_template_files/figure-html/steps_histogram-1.png) 
 
 ### 2. Calculate and report the **mean** and **median** total number of steps taken per day
 
@@ -80,7 +75,7 @@ plot(x = daily.pattern$time,
     main = "Average Daily Walking Pattern")
 ```
 
-![plot of chunk time_series_plot](figure/time_series_plot-1.png) 
+![](PA1_template_files/figure-html/time_series_plot-1.png) 
 
 ### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -95,7 +90,7 @@ max.steps
 ## Source: local data frame [1 x 2]
 ## 
 ##                  time average.steps
-## 1 2015-06-09 08:35:00      206.1698
+## 1 2015-07-19 08:35:00      206.1698
 ```
 
 The 5 minute interval with the maximum number of steps is at 08:35.
@@ -159,16 +154,16 @@ activity.filled.nas
 ## Source: local data frame [2,304 x 5]
 ## 
 ##       steps       date                time           timestamp   weekday
-## 1  0.000000 2012-11-09 2015-06-09 00:00:00 2012-11-09 00:00:00    Friday
-## 2  0.000000 2012-11-30 2015-06-09 00:00:00 2012-11-30 00:00:00    Friday
-## 3  1.428571 2012-10-01 2015-06-09 00:00:00 2012-10-01 00:00:00    Monday
-## 4  1.428571 2012-10-08 2015-06-09 00:00:00 2012-10-08 00:00:00    Monday
-## 5  0.000000 2012-11-10 2015-06-09 00:00:00 2012-11-10 00:00:00  Saturday
-## 6  0.000000 2012-11-04 2015-06-09 00:00:00 2012-11-04 00:00:00    Sunday
-## 7  5.875000 2012-11-01 2015-06-09 00:00:00 2012-11-01 00:00:00  Thursday
-## 8  4.250000 2012-11-14 2015-06-09 00:00:00 2012-11-14 00:00:00 Wednesday
-## 9  0.000000 2012-11-09 2015-06-09 00:05:00 2012-11-09 00:05:00    Friday
-## 10 0.000000 2012-11-30 2015-06-09 00:05:00 2012-11-30 00:05:00    Friday
+## 1  0.000000 2012-11-09 2015-07-19 00:00:00 2012-11-09 00:00:00    Friday
+## 2  0.000000 2012-11-30 2015-07-19 00:00:00 2012-11-30 00:00:00    Friday
+## 3  1.428571 2012-10-01 2015-07-19 00:00:00 2012-10-01 00:00:00    Monday
+## 4  1.428571 2012-10-08 2015-07-19 00:00:00 2012-10-08 00:00:00    Monday
+## 5  0.000000 2012-11-10 2015-07-19 00:00:00 2012-11-10 00:00:00  Saturday
+## 6  0.000000 2012-11-04 2015-07-19 00:00:00 2012-11-04 00:00:00    Sunday
+## 7  5.875000 2012-11-01 2015-07-19 00:00:00 2012-11-01 00:00:00  Thursday
+## 8  4.250000 2012-11-14 2015-07-19 00:00:00 2012-11-14 00:00:00 Wednesday
+## 9  0.000000 2012-11-09 2015-07-19 00:05:00 2012-11-09 00:05:00    Friday
+## 10 0.000000 2012-11-30 2015-07-19 00:05:00 2012-11-30 00:05:00    Friday
 ## ..      ...        ...                 ...                 ...       ...
 ```
 
@@ -223,7 +218,7 @@ ggplot(two_histograms, aes(x = total.steps)) +
   theme(plot.title = element_text(face = "bold", size = 15))
 ```
 
-![plot of chunk two_histograms](figure/two_histograms-1.png) 
+![](PA1_template_files/figure-html/two_histograms-1.png) 
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
@@ -241,17 +236,17 @@ activity.filled[sample(nrow(activity.filled), 10), c("date", "weekday", "weekend
 ```
 ## Source: local data frame [10 x 3]
 ## 
-##          date  weekday weekend
-## 1  2012-11-02   Friday Weekday
-## 2  2012-11-12   Monday Weekday
-## 3  2012-11-24 Saturday Weekend
-## 4  2012-10-12   Friday Weekday
-## 5  2012-10-09  Tuesday Weekday
-## 6  2012-11-05   Monday Weekday
-## 7  2012-10-11 Thursday Weekday
-## 8  2012-10-21   Sunday Weekend
-## 9  2012-11-05   Monday Weekday
-## 10 2012-10-27 Saturday Weekend
+##          date   weekday weekend
+## 1  2012-10-20  Saturday Weekend
+## 2  2012-11-18    Sunday Weekend
+## 3  2012-11-28 Wednesday Weekday
+## 4  2012-10-09   Tuesday Weekday
+## 5  2012-10-19    Friday Weekday
+## 6  2012-10-20  Saturday Weekend
+## 7  2012-10-16   Tuesday Weekday
+## 8  2012-11-10  Saturday Weekend
+## 9  2012-11-23    Friday Weekday
+## 10 2012-11-08  Thursday Weekday
 ```
 
 ### 2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
@@ -270,4 +265,4 @@ xyplot(average.steps ~ time | weekend,
        scales = list(format = "%H:%M"))
 ```
 
-![plot of chunk panel_plot](figure/panel_plot-1.png) 
+![](PA1_template_files/figure-html/panel_plot-1.png) 
